@@ -5,12 +5,11 @@ import { MovieContextModel } from "./MovieContextModel";
 //CREATES MASTER CONTEXT pass in the starting value
 
 const defaultValue: MovieContextModel= {
-    id:()=> {},
-    title: ()=> {},
-    synopsis:()=> {},
-    rating: ()=> {},
-    genre: ()=> {},
-    image:()=> {}
+     movie:[],
+    addMovie: ()=> void,
+    removeMovie: ()=> void,
+
+
 }
 const MovieContext = createContext(defaultValue);
 

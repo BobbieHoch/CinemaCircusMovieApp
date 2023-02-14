@@ -10,18 +10,18 @@ interface IMovieContaxtProviderProps{
 const MovieContextProvider = ({children}: IMovieContaxtProviderProps) => {
     const [Movie, setMovie] = useState<Movie[]>([]);
 //implementation of functions set up 
-    const addItem = (movie:Movie) => {
+    const addMovie = (movie:Movie) => {
         setMovie([...Movie, movie]);
 
     }
-    const removeItem = (id: string) => {
+    const removeMovie = (id: string) => {
         setMovie(Movie.filter((x) => x.id !== id));
     }
 
     return (<MovieContext.Provider value={{
-        Movie: Movie,
-        addItem: addItem,
-        removeItem: removeItem
+        movie: Movie,
+        addMovie: addMovie,
+        removeMovie: removeMovie
     }}>{children}</MovieContext.Provider>);
     
     
