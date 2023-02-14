@@ -1,7 +1,6 @@
 import * as React from 'react';
 
-
-export function App () {
+export function Favorites () {
   return (
     <div className="Favorites">
       

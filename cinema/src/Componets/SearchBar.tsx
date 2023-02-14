@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-export function App () {
+export function SearchBar () {
   return (
     <div className="SearchBar">
       
