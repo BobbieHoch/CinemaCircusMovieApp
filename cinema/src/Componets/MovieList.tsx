@@ -1,18 +1,41 @@
 import * as React from 'react';
 import { useState, useEffect } from 'react';
-import { MovieResponse } from '../models/Movie';
+import { Movie } from '../models/Movie';
 import { GetMovieData } from '../Services/MovieService';
-import { MovieCard } from './MovieCard';
+// import { MovieCard } from './MovieCard';
+import { MovieResponse } from '../models/MovieTest';
+
 
 export function MovieList () {
-  const [MovieResponse, setMovieResponse] = useState<MovieResponse>();
+  const [moviesResponse, setMovieResponse] = useState<MovieResponse>();
   useEffect(() => {
     GetMovieData().then(data => setMovieResponse(data))
   }, []);
 
+useEffect(() => {
+  console.log(moviesResponse);
+}, [moviesResponse]);
+
+
+let results = moviesResponse?.results;
+
+let baseImageURL = "https://image.tmdb.org/t/p/w500"
+  
+let displayResults = results?.map((movie) =>
+<ul>
+  <li>{baseImageURL + movie.poster_path}</li>
+  <li>{movie.title}</li>
+  <li>{movie.overview}</li>
+  <li>Genre</li>
+  <li>Rating{movie.vote_average}</li>
+</ul>
+)
+
+
   return (
     <div className="MovieList">
-      {MovieResponse !== undefined && MovieResponse.results.map((movie)=><MovieCard/>)}
+      <div>MovieList</div>
+      {moviesResponse !== undefined && <>{displayResults}</>}
     </div>
   );
 }
