@@ -1,9 +1,10 @@
 import { Movie } from "../models/Movie";
 import axios from "axios";
+import { MovieResponse } from "../models/MovieTest";
 
-export function GetMovieData(): Promise<Movie> {
+export function GetMovieData(): Promise<MovieResponse>  {
     return axios
 
-    .get<Movie>("https://api.themoviedb.org/3/movie/550?api_key=52347ae3c2afc9c57260e9eff233ad3b")
+    .get<MovieResponse>("https://api.themoviedb.org/3/movie/popular?api_key=52347ae3c2afc9c57260e9eff233ad3b&language=en-US&page=1")
     .then((response) => response.data);
 }
