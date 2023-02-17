@@ -1,12 +1,12 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import { Header } from './Componets/Header';
-import { SearchBar } from './Componets/SearchBar';
+import { Header } from './Components/Header';
+import { SearchBar } from './Components/SearchBar';
 import {Routes, Route, Navigate, BrowserRouter} from "react-router-dom"
-import { MovieList } from './Componets/MovieList';
-import { Favorites } from './Componets/Favorites';
-import { MovieDetails } from './Componets/MovieDetails';
+import { MovieList } from './Components/MovieList';
+import { Favorites } from './Components/Favorites';
+import { MovieDetails } from './Components/MovieDetails';
 
 function App() {
   return (
