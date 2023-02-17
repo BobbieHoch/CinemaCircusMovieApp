@@ -18,8 +18,8 @@ let baseImageURL = "https://image.tmdb.org/t/p/w154"
             <img alt="movie poster" src= {baseImageURL + movieInfo.poster_path}/>
            <CardTitle>{movieInfo.title}</CardTitle>
            <CardText>{movieInfo.overview}</CardText>
-           <button>Placeholder</button>
-           <button>Placeholder</button>
+           <button>Details</button>
+           <button>Add To Favorites</button>
         </Card>
     </div>
   )
