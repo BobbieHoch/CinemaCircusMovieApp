@@ -1,7 +1,5 @@
-import { useState, useEffect, useContext } from "react";
-import { Movie } from "../models/Movie";
 import { MovieResponse, Result } from "../models/MovieTest";
-import { GetMovieData } from "../Services/MovieService";
+import {Card, CardBody, CardText, CardFooter, CardTitle} from "reactstrap";
 
 
 interface IMovieCardProps{
@@ -12,18 +10,17 @@ export function MovieCard(props:IMovieCardProps) {
 
 let movieInfo = props.movie
 
-let baseImageURL = "https://image.tmdb.org/t/p/original"
+let baseImageURL = "https://image.tmdb.org/t/p/w154"
 
   return(
-    <div className = "MovieCard">
-        <ul>
-       <li>{baseImageURL}{movieInfo.poster_path}</li>
-       <li>{movieInfo.title}</li>
-       <li>{movieInfo.overview}</li>
-       <li>Genre</li>
-       <li>Rating {movieInfo.vote_average}</li>
-    </ul>
-
+    <div className = "MovieCard"> 
+        <Card>
+            <img alt="movie poster" src= {baseImageURL + movieInfo.poster_path}/>
+           <CardTitle>{movieInfo.title}</CardTitle>
+           <CardText>{movieInfo.overview}</CardText>
+           <button>Placeholder</button>
+           <button>Placeholder</button>
+        </Card>
     </div>
   )
 }
