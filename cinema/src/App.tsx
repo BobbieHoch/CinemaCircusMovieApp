@@ -10,11 +10,12 @@ import { Favorites } from './Componets/Favorites';
 function App() {
   return (
     <div className = "App">
+      <Header />
+      <SearchBar />
       <Routes>
         <Route path="/" element={<MovieList />} />
         <Route path="/favorites" element={<Favorites />} />
       </Routes>
-
       </div>
   );
 }
