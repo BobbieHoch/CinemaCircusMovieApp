@@ -3,11 +3,11 @@
 }
 
 body {
-  background-color: lightblue;
+  background-color: whitesmoke;
 }
 
 .Header {
-  background-color: red;
+  background-color: lightblue;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -24,4 +24,24 @@ body {
   padding-right: 15px;
   padding-top: 5px;
   height: 25px;
+}
+
+.MovieCard {
+  padding: 10px;
+  margin: 10px;
+  box-shadow: 4px 4px 4px 4px;
+}
+
+.MovieList {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-items: center;
+}
+
+.SearchBar{
+display: flex;
+justify-content: center;
+padding: 10px;
+margin: 10px;
 }
