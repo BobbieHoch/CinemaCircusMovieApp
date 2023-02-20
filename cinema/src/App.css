@@ -30,18 +30,40 @@ body {
   padding: 10px;
   margin: 10px;
   box-shadow: 4px 4px 4px 4px;
+ 
 }
+
 
 .MovieList {
   width: 100%;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   justify-items: center;
+  text-align: center;
 }
 
-.SearchBar{
-display: flex;
-justify-content: center;
-padding: 10px;
-margin: 10px;
+.SearchBar {
+  display: flex;
+  justify-content: flex-end;
+  padding: 10px;
+  margin: 10px;
+}
+
+img {
+  width: 50%;
+  height: 50%;
+  padding: 10px;
+  margin: 10px;
+  box-shadow: 4px 4px 4px 4px;
+  transition: all 0.3s ease;
+}
+
+img:hover{
+  transform: scale(1.1);
+}
+
+button {
+  width: 50%;
+  height: 25px;
+  background-color: silver;
 }

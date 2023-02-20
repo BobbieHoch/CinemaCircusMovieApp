@@ -6,6 +6,7 @@ import { MovieResponse } from '../models/MovieTest';
 import { MovieCard } from './MovieCard';
 
 
+
 export function MovieList(){
   const [movieResponse, setMovieResponse] = useState<MovieResponse>();
 
