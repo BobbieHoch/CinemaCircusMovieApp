@@ -27,7 +27,7 @@ export function MovieCard(props: IMovieCardProps) {
         <NavLink to={`/details/${movieInfo.id}`}>
           <button>Details</button>
         </NavLink>
-        <button onClick ={() => addFavorite(movieInfo)}>Add To Favorites</button>
+        <button onClick ={() => {addFavorite(movieInfo)}}>Add To Favorites</button>
       </Card>
     </div>
   );

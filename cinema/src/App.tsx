@@ -11,6 +11,7 @@ import { Favorites } from './Components/Favorites';
 import { MovieDetails } from './Components/MovieDetails';
 import { GetMovieData } from './Services/MovieService';
 import { MovieResponse } from './models/MovieTest';
+import MovieContextProvider from './context/MovieContextProvider';
 
 
 function App () {
@@ -33,16 +34,18 @@ function App () {
 
   return (
     <div className = "App">
+      <MovieContextProvider>
       <Header />
       <SearchBar />
       <Routes>
         {/* <Route path="/" element={<MovieList movies={movieResponse}/>} /> */}
         <Route path="/" element={<MovieList />} />
-        <Route path="/favorites/id" element={<Favorites />} />
+        <Route path="/favorites" element={<Favorites />} />
         <Route path="/details/:id" element={<MovieDetails />} />
         {/* <Route path="/details/:id" element={findMovieDetails(id)} /> */}
 
       </Routes>
+      </MovieContextProvider>
       </div>
   );
 }
