@@ -1,21 +1,14 @@
-import React from "react";
-import { useEffect, useState } from "react";
-import logo from "./logo.svg";
-import "./App.css";
-import { Header } from "./Components/Header";
-import { SearchBar } from "./Components/SearchBar";
-import {
-  Routes,
-  Route,
-  Navigate,
-  BrowserRouter,
-  useParams,
-} from "react-router-dom";
-import { MovieList } from "./Components/MovieList";
-import { Favorites } from "./Components/Favorites";
-import { MovieDetails } from "./Components/MovieDetails";
-import { GetMovieData } from "./Services/MovieService";
-import { MovieResponse } from "./models/MovieTest";
+import './App.css';
+import { Header } from './Components/Header';
+import {Routes, Route, Navigate, BrowserRouter, useParams} from "react-router-dom"
+import { MovieList } from './Components/MovieList';
+import { Favorites } from './Components/Favorites';
+import { MovieDetails } from './Components/MovieDetails';
+import MovieContextProvider from './context/MovieContextProvider';
+
+
+
+
 
 function App() {
   // const [movieResponse, setMovieResponse] = useState<MovieResponse>();
@@ -34,16 +27,19 @@ function App() {
   // }
 
   return (
-    <div className="App">
+    <div className = "App">
+      <MovieContextProvider>
       <Header />
       <Routes>
         {/* <Route path="/" element={<MovieList movies={movieResponse}/>} /> */}
         <Route path="/" element={<MovieList />} />
-        <Route path="/favorites/id" element={<Favorites />} />
+        <Route path="/favorites" element={<Favorites />} />
         <Route path="/details/:id" element={<MovieDetails />} />
         {/* <Route path="/details/:id" element={findMovieDetails(id)} /> */}
       </Routes>
-    </div>
+      </MovieContextProvider>
+      </div>
+
   );
 }
 

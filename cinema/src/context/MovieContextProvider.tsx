@@ -7,20 +7,21 @@ interface IMovieContextProviderProps {
 }
 
 const MovieContextProvider = ({ children }: IMovieContextProviderProps) => {
-  const [movie, setMovie] = useState<Result[]>([]);
+  const [movieFavorites, setMovieFavorites] = useState<Result[]>([]);
 
   const addFavorite = (movie: Result) => {
-    // setMovie([...movie, Movie]);
+    setMovieFavorites([...movieFavorites, movie]);
+    console.log(movie)
   };
 
   const removeFavorite = (id: number) => {
-    setMovie(movie.filter((movie) => movie.id !== id));
+    setMovieFavorites(movieFavorites.filter((movie) => movie.id !== id));
   };
 
   return (
     <MovieContext.Provider
       value={{
-        movie: movie,
+        movie: movieFavorites,
         addFavorite: addFavorite,
         removeFavorite: removeFavorite,
       }}
