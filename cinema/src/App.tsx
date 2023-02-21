@@ -38,8 +38,8 @@ function App () {
       <Routes>
         {/* <Route path="/" element={<MovieList movies={movieResponse}/>} /> */}
         <Route path="/" element={<MovieList />} />
-        <Route path="/favorites:id" element={<Favorites />} />
-        <Route path="/details:id" element={<MovieDetails />} />
+        <Route path="/favorites/id" element={<Favorites />} />
+        <Route path="/details/:id" element={<MovieDetails />} />
         {/* <Route path="/details/:id" element={findMovieDetails(id)} /> */}
 
       </Routes>

@@ -1,6 +1,8 @@
 import { MovieResponse, Result } from "../models/MovieTest";
-import { Card, CardBody, CardText, CardFooter, CardTitle } from "reactstrap";
+import { Card, CardBody, CardText, CardFooter, CardTitle, Alert } from "reactstrap";
 import { NavLink, Navigate } from "react-router-dom";
+import MovieContext from "../context/MovieContext";
+import { useContext } from "react";
 
 interface IMovieCardProps {
   movie: Result;
@@ -9,6 +11,12 @@ export function MovieCard(props: IMovieCardProps) {
   let movieInfo = props.movie;
 
   let baseImageURL = "https://image.tmdb.org/t/p/w154";
+
+  const {addFavorite, removeFavorite} = useContext(MovieContext);
+
+  // function addFavorite(movie: any): void {
+  //   throw new Error("Function not implemented.");
+  // }
 
   return (
     <div className="MovieCard">
@@ -19,7 +27,7 @@ export function MovieCard(props: IMovieCardProps) {
         <NavLink to={`/details/${movieInfo.id}`}>
           <button>Details</button>
         </NavLink>
-        <NavLink to={`/favorites/`}><button>Add To Favorites</button></NavLink>
+        <button onClick ={() => addFavorite(movieInfo)}>Add To Favorites</button>
       </Card>
     </div>
   );

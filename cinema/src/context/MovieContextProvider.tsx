@@ -1,5 +1,5 @@
 import { ReactNode, useState } from "react";
-import { Movie } from "../models/Movie";
+import { MovieResponse, Result } from "../models/MovieTest";
 import MovieContext from "./MovieContext";
 
 interface IMovieContextProviderProps {
@@ -7,13 +7,13 @@ interface IMovieContextProviderProps {
 }
 
 const MovieContextProvider = ({ children }: IMovieContextProviderProps) => {
-  const [movie, setMovie] = useState<Movie[]>([]);
+  const [movie, setMovie] = useState<Result[]>([]);
 
-  const addFavorite = (movie: Movie) => {
+  const addFavorite = (movie: Result) => {
     // setMovie([...movie, Movie]);
   };
 
-  const removeFavorite = (id: string) => {
+  const removeFavorite = (id: number) => {
     setMovie(movie.filter((movie) => movie.id !== id));
   };
 

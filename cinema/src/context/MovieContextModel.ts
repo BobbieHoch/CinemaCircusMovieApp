@@ -1,7 +1,7 @@
-import { Movie } from "../models/Movie";
+import { MovieResponse, Result } from "../models/MovieTest";
 
 export interface MovieContextModel {
-  movie: Movie[];
-  addFavorite: (movie: Movie) => void;
-  removeFavorite: (id: string) => void;
+  movie: Result[];
+  addFavorite: (movie: Result) => void;
+  removeFavorite: (id: number) => void;
 }
