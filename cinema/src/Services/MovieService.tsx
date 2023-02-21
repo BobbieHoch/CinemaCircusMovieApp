@@ -8,3 +8,8 @@ export function GetMovieData(): Promise<MovieResponse>  {
     .then((response) => response.data);
 }
 
+export function getMovieBySearchTerm (term:string){
+    return axios
+    .get<MovieResponse>("https://api.themoviedb.org/3/search/movie", {params:{api_key:"52347ae3c2afc9c57260e9eff233ad3b", query:term}})
+    .then((res) => res.data);
+}

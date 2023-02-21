@@ -1,20 +1,23 @@
+import React from "react";
+import { useEffect, useState } from "react";
+import logo from "./logo.svg";
+import "./App.css";
+import { Header } from "./Components/Header";
+import { SearchBar } from "./Components/SearchBar";
+import {
+  Routes,
+  Route,
+  Navigate,
+  BrowserRouter,
+  useParams,
+} from "react-router-dom";
+import { MovieList } from "./Components/MovieList";
+import { Favorites } from "./Components/Favorites";
+import { MovieDetails } from "./Components/MovieDetails";
+import { GetMovieData } from "./Services/MovieService";
+import { MovieResponse } from "./models/MovieTest";
 
-import React from 'react';
-import{ useEffect, useState} from 'react';
-import logo from './logo.svg';
-import './App.css';
-import { Header } from './Components/Header';
-import { SearchBar } from './Components/SearchBar';
-import {Routes, Route, Navigate, BrowserRouter, useParams} from "react-router-dom"
-import { MovieList } from './Components/MovieList';
-import { Favorites } from './Components/Favorites';
-import { MovieDetails } from './Components/MovieDetails';
-import { GetMovieData } from './Services/MovieService';
-import { MovieResponse } from './models/MovieTest';
-
-
-function App () {
-
+function App() {
   // const [movieResponse, setMovieResponse] = useState<MovieResponse>();
   // const {id} = useParams()
 
@@ -27,23 +30,20 @@ function App () {
   //     const foundMovie = movieResponse?.results.find(movie => movie.id===id)
   //     return <MovieDetails movieDetails={foundMovie}/>
   //   }
-    
+
   // }
 
-
   return (
-    <div className = "App">
+    <div className="App">
       <Header />
-      <SearchBar />
       <Routes>
         {/* <Route path="/" element={<MovieList movies={movieResponse}/>} /> */}
         <Route path="/" element={<MovieList />} />
         <Route path="/favorites/id" element={<Favorites />} />
         <Route path="/details/:id" element={<MovieDetails />} />
         {/* <Route path="/details/:id" element={findMovieDetails(id)} /> */}
-
       </Routes>
-      </div>
+    </div>
   );
 }
 

@@ -2,37 +2,39 @@ import { SERVFAIL } from "dns";
 import * as React from "react";
 import { useState, useEffect } from "react";
 import { MovieResponse, Result } from "../models/MovieTest";
+import { getMovieBySearchTerm } from "../Services/MovieService";
 
-export function SearchBar() {
+interface ISearchBarProps {
+  updateMovie: Function
+}
+
+
+export function SearchBar(props:ISearchBarProps) {
   const [title, setTitle] = useState<string>("");
   const [genre, setGenre] = useState<number[]>();
   const [voteAverage, setVoteAverage] = useState<number>();
   const [movie, setMovie] = useState<Result[]>([]);
-  
-  useEffect(() => {}, [title, genre, voteAverage]); // const [filters, setFilters] = useState<string[]>(["Title", "Genre", "Rating"]);
+  const [query, setQuery] = useState("");
 
-  // function showFilters (filters:string) : void {
-  //   setFilters([...filters, filters])
-  // }
+  function onSubmit (e:React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    getMovieBySearchTerm(title).then(res => props.updateMovie(res.results))
+  }
+  
+
+
 
   return (
     <div className="SearchBar">
       <form
-        onSubmit={(e) => {
-          e.preventDefault();
-          setTitle(title);
-          setGenre(genre);
-          setVoteAverage(voteAverage);
-        }}
+      onSubmit={onSubmit}
       >
         <input
           type="text"
           name=""
           id=""
           placeholder="Search"
-          onChange={(e) => {
-            setTitle(e.target.value);
-          }}
+          onChange={(e) => setTitle(e.target.value)}
         />
         <button type="submit">Submit</button>
         <button>Filter(s)</button>
