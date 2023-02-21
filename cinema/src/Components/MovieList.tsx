@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { useState, useEffect } from 'react';
-import { Movie } from '../models/Movie';
 import { GetMovieData } from '../Services/MovieService';
 import { MovieResponse } from '../models/MovieTest';
 import { MovieCard } from './MovieCard';

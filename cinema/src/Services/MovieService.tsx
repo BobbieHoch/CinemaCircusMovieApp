@@ -1,6 +1,5 @@
-import { Movie } from "../models/Movie";
 import axios from "axios";
-import { MovieResponse } from "../models/MovieTest";
+import { MovieResponse, Result } from "../models/MovieTest";
 
 export function GetMovieData(): Promise<MovieResponse>  {
     return axios
@@ -8,3 +7,4 @@ export function GetMovieData(): Promise<MovieResponse>  {
     .get<MovieResponse>("https://api.themoviedb.org/3/movie/popular?api_key=52347ae3c2afc9c57260e9eff233ad3b&language=en-US&page=1")
     .then((response) => response.data);
 }
+
