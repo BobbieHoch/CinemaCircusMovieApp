@@ -21,12 +21,12 @@ export function MovieCard(props: IMovieCardProps) {
     <div className="MovieCard">
       <Card>
         <img alt="movie poster" src={baseImageURL + movieInfo.poster_path} />
-        <CardTitle>{movieInfo.title}</CardTitle>
+        <CardTitle className ="CardTitle">{movieInfo.title}</CardTitle>
         <CardText>{movieInfo.overview}</CardText>
         <NavLink to={`/details/${movieInfo.id}`}>
-          <button>Details</button>
+          <button className = "CardButton">Details</button>
         </NavLink>
-        <button disabled = {disable} onClick ={() => {addFavorite(movieInfo); setDisable(true)}}>Add To Favorites</button>
+        <button className = "CardButton" disabled = {disable} onClick ={() => {addFavorite(movieInfo); setDisable(true)}}>Add To Favorites</button>
       </Card>
     </div>
   );
