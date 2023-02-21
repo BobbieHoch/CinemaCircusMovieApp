@@ -30,19 +30,21 @@ export function MovieDetails() {
 
   const {addFavorite, removeFavorite} = useContext(MovieContext);
 
+  const [disable, setDisable] = React.useState(false);
+
   return (
-    <div className = "MovieDetails">
+    <div>
       {movie !== undefined && 
-      <div>
-        <section>
+      <div className = "MovieDetails">
+        <section className = "DetailsPoster">
           <img alt="movie poster" src={baseImageURL + movie?.poster_path} />
         </section>
-        <section>
-          <p>title: {movie?.title}</p>
+        <section className = "DetailsInfo">
+          <h1>{movie?.title}</h1>
           <p>{movie?.overview}</p>
-          <p>{movie?.vote_average}</p>
-        <p>{movie?.release_date}</p>
-        <button onClick ={() => addFavorite(movie)}>Add To Favorites</button>
+          <p>Average Rating: {movie?.vote_average}</p>
+        <p>Release Date: {movie?.release_date}</p>
+        <button disabled = {disable} onClick ={() => {addFavorite(movie); setDisable(true)}}>Add To Favorites</button>
         </section>
       </div>
     }

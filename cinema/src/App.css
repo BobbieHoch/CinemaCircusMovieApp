@@ -1,69 +1,140 @@
-.App {
-  text-align: center;
+@media (min-width: 480px){
+  .App {
+    text-align: center;
+  }
+
+  body {
+    background-color: whitesmoke;
+  }
+  
+  .Header {
+    background-color: lightblue;
+    align-items: center;
+    padding: 10px;
+  }
+
+  h1{
+    font-size: 50px;
+  }
+  
+  .Header p {
+    font-weight: bold;
+    font-size: 25px;
+  }
+
+  /* .HeaderLinks{
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+    border: solid black 2px;
+  } */
+
+  .SearchBar {
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 15px;
+    padding-top: 5px;
+    height: 25px;
+  }
+
+  .MovieCard {
+    padding: 10px;
+    margin: 35px 10px;
+    box-shadow: 4px 4px 4px 4px;
+  }
+
+.CardTitle {
+  font-size: 25px;
+  font-weight: bold;
+}
+  
+  
+  .MovieList, .Favorites {
+    width: 100%;
+    justify-items: center;
+    text-align: center;
+  }
+
+  img {
+    width: 50%;
+    height: 70%;
+    padding: 10px;
+    margin: 10px;
+    box-shadow: 4px 4px 4px 4px;
+    transition: all 0.3s ease;
+  }
+
+  img:hover{
+    transform: scale(1.1);
+  }
+
+  button {
+    width: 50%;
+    height: 25px;
+    background-color: silver;
+    border-radius: 10px;
+  }
+
+
+.MovieDetails h1{
+  font-size: 25px;
+  font-weight: bold;
 }
 
-body {
-  background-color: whitesmoke;
+  
 }
 
-.Header {
-  background-color: lightblue;
+
+
+
+@media (min-width: 992px){
+
+.Header{
   display: flex;
   justify-content: space-around;
-  align-items: center;
-  padding: 10px;
+}
+
+h1{
+  font-size: 35px;
 }
 
 .Header p {
   font-weight: bold;
+  font-size: 20px;
 }
 
-.SearchBar {
-  display: flex;
-  justify-content: flex-end;
-  padding-right: 15px;
-  padding-top: 5px;
-  height: 25px;
-}
-
-.MovieCard {
-  padding: 10px;
-  margin: 10px;
-  box-shadow: 4px 4px 4px 4px;
- 
-}
-
-
-.MovieList {
-  width: 100%;
+.MovieList, .Favorites {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  justify-items: center;
-  text-align: center;
 }
 
-.SearchBar {
+
+/* .SearchBar {
   display: flex;
   justify-content: flex-end;
   padding: 10px;
   margin: 10px;
-}
+} */
 
 img {
-  width: 50%;
-  height: 50%;
-  padding: 10px;
-  margin: 10px;
-  box-shadow: 4px 4px 4px 4px;
-  transition: all 0.3s ease;
+ height: 50%;
 }
 
-img:hover{
-  transform: scale(1.1);
+.MovieDetails {
+  display: flex;
 }
 
-button {
+.DetailsPoster {
   width: 50%;
-  height: 25px;
-  background-color: silver;
+  height: 100%;
+}
+
+.DetailsInfo {
+  width: 50%;
+  margin-right: 10px;
+  padding-top: 50px;
+
+}
+
+
 }

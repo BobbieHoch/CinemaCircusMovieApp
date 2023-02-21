@@ -2,6 +2,7 @@ import * as React from 'react';
 import { useContext } from 'react';
 import { Card, CardText, CardTitle, NavLink } from 'reactstrap';
 import MovieContext from '../context/MovieContext';
+import { MovieCard } from './MovieCard';
 
 export function Favorites () {
   
@@ -13,9 +14,10 @@ export function Favorites () {
   return (
     <div className="Favorites">
       {(movie || [])?.map((movie, index) => (
-        <Card key={movie.id}>
+        // <MovieCard movie = {movie} key = {movie.id}/>
+        <Card className = "MovieCard" key={movie.id}>
         <img alt="movie poster" src={baseImageURL + movie.poster_path} />
-        <CardTitle>{movie.title}</CardTitle>
+        <CardTitle className = "CardTitle">{movie.title}</CardTitle>
         <CardText>{movie.overview}</CardText>
         <NavLink to={`/details/${movie.id}`}>
           <button>Details</button>
