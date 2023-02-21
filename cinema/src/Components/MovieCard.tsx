@@ -3,6 +3,7 @@ import { Card, CardBody, CardText, CardFooter, CardTitle, Alert } from "reactstr
 import { NavLink, Navigate } from "react-router-dom";
 import MovieContext from "../context/MovieContext";
 import { useContext } from "react";
+import React from "react";
 
 interface IMovieCardProps {
   movie: Result;
@@ -14,9 +15,7 @@ export function MovieCard(props: IMovieCardProps) {
 
   const {addFavorite, removeFavorite} = useContext(MovieContext);
 
-  // function addFavorite(movie: any): void {
-  //   throw new Error("Function not implemented.");
-  // }
+  const [disable, setDisable] = React.useState(false);
 
   return (
     <div className="MovieCard">
@@ -27,7 +26,7 @@ export function MovieCard(props: IMovieCardProps) {
         <NavLink to={`/details/${movieInfo.id}`}>
           <button>Details</button>
         </NavLink>
-        <button onClick ={() => {addFavorite(movieInfo)}}>Add To Favorites</button>
+        <button disabled = {disable} onClick ={() => {addFavorite(movieInfo); setDisable(true)}}>Add To Favorites</button>
       </Card>
     </div>
   );

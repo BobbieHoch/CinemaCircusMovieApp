@@ -13,7 +13,7 @@ export function Favorites () {
   return (
     <div className="Favorites">
       {(movie || [])?.map((movie, index) => (
-        <Card>
+        <Card key={movie.id}>
         <img alt="movie poster" src={baseImageURL + movie.poster_path} />
         <CardTitle>{movie.title}</CardTitle>
         <CardText>{movie.overview}</CardText>

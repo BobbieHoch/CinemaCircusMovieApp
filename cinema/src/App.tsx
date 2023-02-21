@@ -1,6 +1,5 @@
 import './App.css';
 import { Header } from './Components/Header';
-import { SearchBar } from './Components/SearchBar';
 import {Routes, Route, Navigate, BrowserRouter, useParams} from "react-router-dom"
 import { MovieList } from './Components/MovieList';
 import { Favorites } from './Components/Favorites';
