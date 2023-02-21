@@ -1,7 +1,3 @@
-
-import React from 'react';
-import{ useEffect, useState} from 'react';
-import logo from './logo.svg';
 import './App.css';
 import { Header } from './Components/Header';
 import { SearchBar } from './Components/SearchBar';
@@ -9,8 +5,6 @@ import {Routes, Route, Navigate, BrowserRouter, useParams} from "react-router-do
 import { MovieList } from './Components/MovieList';
 import { Favorites } from './Components/Favorites';
 import { MovieDetails } from './Components/MovieDetails';
-import { GetMovieData } from './Services/MovieService';
-import { MovieResponse } from './models/MovieTest';
 import MovieContextProvider from './context/MovieContextProvider';
 
 
@@ -36,7 +30,6 @@ function App () {
     <div className = "App">
       <MovieContextProvider>
       <Header />
-      <SearchBar />
       <Routes>
         {/* <Route path="/" element={<MovieList movies={movieResponse}/>} /> */}
         <Route path="/" element={<MovieList />} />
