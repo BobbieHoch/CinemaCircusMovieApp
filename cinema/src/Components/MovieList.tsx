@@ -1,21 +1,23 @@
 import * as React from 'react';
 import { useState, useEffect } from 'react';
 import { GetMovieData } from '../Services/MovieService';
-import { MovieResponse } from '../models/MovieTest';
+import { MovieResponse, Result } from '../models/MovieTest';
 import { MovieCard } from './MovieCard';
+import { SearchBar } from './SearchBar';
 
 
 
 export function MovieList(){
-  const [movieResponse, setMovieResponse] = useState<MovieResponse>();
+  const [movieResponse, setMovieResponse] = useState<Result[]>();
 
-  useEffect(() => {
-    GetMovieData().then(data => setMovieResponse(data))
-  }, []);
+function updateMovie(movies:Result[]){
+  setMovieResponse(movies);
+}
 
   return(
     <div className = "MovieList">
-      {setMovieResponse !== undefined && movieResponse?.results.map((movie) => <MovieCard movie = {movie} key = {movie.id}/>)}
+      <SearchBar updateMovie={updateMovie} />
+      {setMovieResponse !== undefined && movieResponse?.map((movie) => <MovieCard movie = {movie} key = {movie.id}/>)}
     </div>
   )
 }
