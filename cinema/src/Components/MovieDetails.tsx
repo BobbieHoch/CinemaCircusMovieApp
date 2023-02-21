@@ -3,8 +3,9 @@ import { NavLink, Navigate } from "react-router-dom";
 import { MovieResponse, Result } from "../models/MovieTest";
 import {useParams} from 'react-router-dom';
 import axios from "axios";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { MovieList } from "./MovieList";
+import MovieContext from "../context/MovieContext";
 
 
 export function MovieDetails() {
@@ -27,6 +28,8 @@ export function MovieDetails() {
 
   let baseImageURL = "https://image.tmdb.org/t/p/w154";
 
+  const {addFavorite, removeFavorite} = useContext(MovieContext);
+
   return (
     <div className = "MovieDetails">
       {movie !== undefined && 
@@ -39,6 +42,7 @@ export function MovieDetails() {
           <p>{movie?.overview}</p>
           <p>{movie?.vote_average}</p>
         <p>{movie?.release_date}</p>
+        <button onClick ={() => addFavorite(movie)}>Add To Favorites</button>
         </section>
       </div>
     }
