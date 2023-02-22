@@ -33,10 +33,6 @@ export function SearchBar(props:ISearchBarProps) {
           placeholder="Search"
           onChange={(e) => setTitle(e.target.value)}
         />
-        <label> Filters </label>
-        <input type="radio" />Genre
-        <input type="radio" />Rating
-        <input type="radio" />Title
         <button type="submit">Submit</button>
         {/* <button>Filters</button> */}
       </form>
