@@ -20,9 +20,6 @@ export function SearchBar(props:ISearchBarProps) {
     e.preventDefault();
     getMovieBySearchTerm(title).then(res => props.updateMovie(res.results))
   }
-  
-
-
 
   return (
     <div className="SearchBar">
@@ -36,8 +33,12 @@ export function SearchBar(props:ISearchBarProps) {
           placeholder="Search"
           onChange={(e) => setTitle(e.target.value)}
         />
+        <label> Filters </label>
+        <input type="radio" />Genre
+        <input type="radio" />Rating
+        <input type="radio" />Title
         <button type="submit">Submit</button>
-        <button>Filter(s)</button>
+        {/* <button>Filters</button> */}
       </form>
     </div>
   );

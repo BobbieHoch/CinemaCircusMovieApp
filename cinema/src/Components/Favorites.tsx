@@ -3,6 +3,7 @@ import { useContext } from 'react';
 import { Card, CardText, CardTitle, NavLink } from 'reactstrap';
 import MovieContext from '../context/MovieContext';
 import { MovieCard } from './MovieCard';
+import { Link} from "react-router-dom"
 
 export function Favorites () {
   
@@ -19,9 +20,9 @@ export function Favorites () {
         <img alt="movie poster" src={baseImageURL + movie.poster_path} />
         <CardTitle className = "CardTitle">{movie.title}</CardTitle>
         <CardText>{movie.overview}</CardText>
-        <NavLink to={`/details/${movie.id}`}>
+        <Link to={`/details/${movie.id}`}>
           <button>Details</button>
-        </NavLink>
+        </Link>
         <button onClick ={() => {removeFavorite(movie.id)}}>Remove from Favorites</button>
       </Card>
       ))}
